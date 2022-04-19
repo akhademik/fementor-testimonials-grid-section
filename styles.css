@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+  --clr-moderate-violet: hsl(263, 55%, 52%);
+  --clr-dark-gray-blue: hsl(217, 19%, 35%);
+  --clr-dark-black-blue: hsl(219, 29%, 14%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-light-gray: hsl(0, 0%, 81%);
+  --clr-light-gray-blue: hsl(210, 46%, 95%);
+
+  --clr-bground: ;
+  --sz-bdr-rad: 0.8rem;
+
+  font-size: 13px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: var(--clr-light-gray-blue);
+  color: var(--clr-light-gray);
+}
+.content {
+  display: grid;
+  grid-template-columns: 328px;
+  gap: 1rem;
+  padding: 2rem;
+}
+.content__card {
+  background-color: var(--clr-bground);
+  border-radius: var(--sz-bdr-rad);
+  padding: 2rem 2rem;
+}
+.content__card__header {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: start;
+  align-items: center;
+}
+
+.content__card__header__avt img {
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-right: 1rem;
+}
+.content__card__header__name::after {
+  display: block;
+  content: "Verified Graduate";
+  opacity: 0.5;
+  font-size: 0.8rem;
+}
+.content__card__quote {
+  padding-bottom: 1.2rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.03rem;
+  color: var(--clr-white);
+}
+.content__card__intro {
+  opacity: 0.7;
+  line-height: 1.3rem;
+}
+.content__card--purple {
+  --clr-bground: var(--clr-moderate-violet);
+  background-image: url(./images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: top right 3rem;
+}
+
+.content__card--gray {
+  --clr-bground: var(--clr-dark-gray-blue);
+}
+.content__card--white {
+  --clr-bground: var(--clr-white);
+  color: var(--clr-dark-black-blue);
+}
+.content__card--white .content__card__quote {
+  color: var(--clr-dark-gray-blue);
+}
+.content__card--blue {
+  --clr-bground: var(--clr-dark-black-blue);
+}
+
+@media (min-width: 40em) {
+  body {
+    align-items: center;
+  }
+  .content {
+    grid-template-columns: repeat(4, 22rem);
+    grid-template-rows: repeat(2, minmax(0, max-content));
+    grid-template-areas:
+      "aa1 aa1 aa2 aa3"
+      "aa4 aa5 aa5 aa3";
+  }
+  .content__card {
+  }
+  .content__card--purple {
+    grid-area: aa1;
+  }
+  .content__card--gray {
+    grid-area: aa2;
+  }
+  .content__card--white:first-child {
+    grid-area: aa4;
+  }
+  .content__card--white:last-child {
+    grid-area: aa3;
+  }
+  .content__card--blue {
+    grid-area: aa5;
+  }
+}
